@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#0b0f1a;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.pay-box{
+  background:#12172a;
+  padding:30px;
+  width:380px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.pay-box h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+input, select{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:10px;
+}
+
+.pay-btn{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(45deg,#36d1dc,#5b86e5);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.summary{
+  margin-bottom:15px;
+  font-size:14px;
+  opacity:0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="pay-box">
+  <h2>💳 Payment</h2>
+
+  <div class="summary">
+    <p><b>Bus:</b> <span id="bus"></span></p>
+    <p><b>Seats:</b> <span id="seats"></span></p>
+    <p><b>Total:</b> ₹<span id="total"></span></p>
+  </div>
+
+  <select id="paymentType" onchange="togglePayment()">
+    <option value="card">Debit Card</option>
+    <option value="upi">UPI</option>
+  </select>
+
+  <!-- CARD -->
+  <div id="card">
+    <input type="text" placeholder="Card Number">
+    <input type="text" placeholder="Expiry Date (MM/YY)">
+    <input type="password" placeholder="CVV">
+  </div>
+
+  <!-- UPI -->
+  <div id="upi" style="display:none;">
+    <select>
+      <option>PhonePe</option>
+      <option>Google Pay</option>
+      <option>Paytm</option>
+    </select>
+    <input type="text" placeholder="UPI ID">
+  </div>
+
+  <button class="pay-btn" onclick="pay()">Pay Now</button>
+</div>
+
+<script>
+document.getElementById("bus").innerText =
+  localStorage.getItem("serviceType") + " - " + localStorage.getItem("name");
+
+document.getElementById("seats").innerText = localStorage.getItem("seats");
+document.getElementById("total").innerText = localStorage.getItem("total");
+
+
+function togglePayment(){
+  let type = document.getElementById("paymentType").value;
+  document.getElementById("card").style.display = type === "card" ? "block" : "none";
+  document.getElementById("upi").style.display = type === "upi" ? "block" : "none";
+}
+
+function pay(){
+  window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#0b0f1a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:#fff;
+}
+
+.auth-box{
+  background:#12172a;
+  padding:35px;
+  width:350px;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.auth-box h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.auth-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+}
+
+.auth-box button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(45deg,#4facfe,#00f2fe);
+  font-weight:600;
+  cursor:pointer;
+}
+
+.switch{
+  text-align:center;
+  margin-top:15px;
+}
+
+.switch a{
+  color:#4facfe;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="auth-box">
+  <h2>Login</h2>
+
+  <input type="email" placeholder="Email" required>
+  <input type="password" placeholder="Password" required>
+
+  <button onclick="login()">Login</button>
+
+  <div class="switch">
+    New user? <a href="register.html">Register here</a>
+  </div>
+</div>
+
+<script>
+function login(){
+  alert("Login successful (demo)");
+}
+</script>
+
+</body>
+</html>
