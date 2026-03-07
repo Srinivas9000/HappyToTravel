@@ -6,127 +6,203 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+*{
+box-sizing:border-box;
+}
+
 body{
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#0b0f1a;
-  color:#fff;
+margin:0;
+font-family:Poppins, sans-serif;
+background:#0b0f1a;
+color:#fff;
 }
 
 .header{
-  padding:20px;
-  background:#12172a;
-  text-align:center;
-  font-size:1.6rem;
-  font-weight:600;
+padding:18px;
+background:#12172a;
+text-align:center;
+font-size:1.5rem;
+font-weight:600;
 }
 
 /* MAIN LAYOUT */
+
 .container{
-  display:flex;
-  gap:30px;
-  padding:30px;
+display:flex;
+gap:25px;
+padding:25px;
 }
 
 /* LEFT SIDE */
+
 .flight-list{
-  width:65%;
+width:65%;
 }
 
 .flight-card{
-  background:#12172a;
-  padding:20px;
-  border-radius:18px;
-  margin-bottom:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+background:#12172a;
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
 .flight-card h3{
-  margin-bottom:10px;
+margin-bottom:10px;
 }
 
 .flight-card p{
-  opacity:0.85;
-  margin:5px 0;
+opacity:0.85;
+margin:5px 0;
 }
 
 .flight-card select{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:10px;
-  border:none;
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+border:none;
 }
 
 .flight-card button{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#7f00ff,#e100ff);
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#7f00ff,#e100ff);
+color:#fff;
+font-weight:600;
+cursor:pointer;
 }
 
 /* RIGHT SIDE */
+
 .seat-box{
-  width:35%;
-  background:#12172a;
-  padding:25px;
-  border-radius:20px;
-  position:sticky;
-  top:20px;
+width:35%;
+background:#12172a;
+padding:25px;
+border-radius:20px;
+position:sticky;
+top:20px;
 }
 
+/* SEATS GRID */
+
 .seats{
-  display:grid;
-  grid-template-columns:repeat(6,55px);
-  gap:10px;
-  margin-top:20px;
+display:grid;
+grid-template-columns:repeat(6,55px);
+gap:10px;
+margin-top:20px;
+justify-content:center;
 }
 
 .seat{
-  width:55px;
-  height:55px;
-  background:#1e2542;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  font-size:14px;
+width:55px;
+height:55px;
+background:#1e2542;
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-size:14px;
 }
 
 .seat.selected{
-  background:#7f00ff;
+background:#7f00ff;
 }
 
 .seat.booked{
-  background:#555;
-  cursor:not-allowed;
+background:#555;
+cursor:not-allowed;
 }
 
 /* SUMMARY */
+
 .summary{
-  margin-top:20px;
+margin-top:20px;
 }
 
 .summary p{
-  margin:8px 0;
+margin:8px 0;
 }
 
 .pay-btn{
-  margin-top:15px;
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#36d1dc,#5b86e5);
-  color:#fff;
-  font-weight:600;
+margin-top:15px;
+padding:12px;
+width:100%;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#36d1dc,#5b86e5);
+color:#fff;
+font-weight:600;
+cursor:pointer;
 }
+
+/* -------- TABLET -------- */
+
+@media (max-width:1024px){
+
+.container{
+flex-direction:column;
+}
+
+.flight-list{
+width:100%;
+}
+
+.seat-box{
+width:100%;
+position:relative;
+}
+
+.seats{
+grid-template-columns:repeat(6,50px);
+}
+
+.seat{
+width:50px;
+height:50px;
+}
+
+}
+
+/* -------- MOBILE -------- */
+
+@media (max-width:600px){
+
+.header{
+font-size:1.3rem;
+}
+
+.container{
+padding:15px;
+gap:20px;
+}
+
+.flight-card{
+padding:15px;
+}
+
+.seats{
+grid-template-columns:repeat(4,45px);
+gap:10px;
+}
+
+.seat{
+width:45px;
+height:45px;
+font-size:12px;
+}
+
+.pay-btn{
+padding:11px;
+}
+
+}
+
 </style>
 </head>
 
@@ -136,139 +212,179 @@ body{
 
 <div class="container">
 
-  <!-- LEFT -->
-  <div class="flight-list">
+<!-- LEFT -->
 
-    <div class="flight-card">
-      <h3>IndiGo Airlines (6E-234)</h3>
-      <p><b>Route:</b> Hyderabad ➝ Delhi</p>
-      <p><b>Departure:</b> 06:00 AM | <b>Arrival:</b> 08:10 AM</p>
-      <p><b>Available Seats:</b> 72</p>
+<div class="flight-list">
 
-      <select onchange="updatePrice(this)">
-        <option value="3500">Economy – ₹3500</option>
-        <option value="6200">Premium Economy – ₹6200</option>
-        <option value="9500">Business – ₹9500</option>
-      </select>
+<div class="flight-card">
+<h3>IndiGo Airlines (6E-234)</h3>
+<p><b>Route:</b> Hyderabad ➝ Delhi</p>
+<p><b>Departure:</b> 06:00 AM | <b>Arrival:</b> 08:10 AM</p>
+<p><b>Available Seats:</b> 72</p>
 
-      <p><b>Price:</b> ₹<span class="price">3500</span></p>
-      <button onclick="showSeats('IndiGo 6E-234')">Select Seats</button>
-    </div>
+<select onchange="updatePrice(this)">
+<option value="3500">Economy – ₹3500</option>
+<option value="6200">Premium Economy – ₹6200</option>
+<option value="9500">Business – ₹9500</option>
+</select>
 
-    <div class="flight-card">
-      <h3>Air India (AI-508)</h3>
-      <p><b>Route:</b> Hyderabad ➝ Mumbai</p>
-      <p><b>Departure:</b> 09:20 AM | <b>Arrival:</b> 10:55 AM</p>
+<p><b>Price:</b> ₹<span class="price">3500</span></p>
+<button onclick="showSeats('IndiGo 6E-234')">Select Seats</button>
+</div>
 
-      <select onchange="updatePrice(this)">
-        <option value="3300">Economy – ₹3300</option>
-        <option value="5900">Premium Economy – ₹5900</option>
-        <option value="8800">Business – ₹8800</option>
-      </select>
+<div class="flight-card">
+<h3>Air India (AI-508)</h3>
+<p><b>Route:</b> Hyderabad ➝ Mumbai</p>
+<p><b>Departure:</b> 09:20 AM | <b>Arrival:</b> 10:55 AM</p>
 
-      <p><b>Price:</b> ₹<span class="price">3300</span></p>
-      <button onclick="showSeats('Air India AI-508')">Select Seats</button>
-    </div>
+<select onchange="updatePrice(this)">
+<option value="3300">Economy – ₹3300</option>
+<option value="5900">Premium Economy – ₹5900</option>
+<option value="8800">Business – ₹8800</option>
+</select>
 
-    <div class="flight-card">
-      <h3>Vistara (UK-822)</h3>
-      <p><b>Route:</b> Bengaluru ➝ Kolkata</p>
-      <p><b>Departure:</b> 07:45 PM | <b>Arrival:</b> 10:15 PM</p>
+<p><b>Price:</b> ₹<span class="price">3300</span></p>
+<button onclick="showSeats('Air India AI-508')">Select Seats</button>
+</div>
 
-      <select onchange="updatePrice(this)">
-        <option value="3600">Economy – ₹3600</option>
-        <option value="6400">Premium Economy – ₹6400</option>
-        <option value="9800">Business – ₹9800</option>
-      </select>
+<div class="flight-card">
+<h3>Vistara (UK-822)</h3>
+<p><b>Route:</b> Bengaluru ➝ Kolkata</p>
+<p><b>Departure:</b> 07:45 PM | <b>Arrival:</b> 10:15 PM</p>
 
-      <p><b>Price:</b> ₹<span class="price">3600</span></p>
-      <button onclick="showSeats('Vistara UK-822')">Select Seats</button>
-    </div>
+<select onchange="updatePrice(this)">
+<option value="3600">Economy – ₹3600</option>
+<option value="6400">Premium Economy – ₹6400</option>
+<option value="9800">Business – ₹9800</option>
+</select>
 
-  </div>
+<p><b>Price:</b> ₹<span class="price">3600</span></p>
+<button onclick="showSeats('Vistara UK-822')">Select Seats</button>
+</div>
 
-  <!-- RIGHT -->
-  <div class="seat-box">
-    <h3>Seat Selection</h3>
-    <div class="seats" id="seats"></div>
+</div>
 
-    <div class="summary">
-      <p>Seats Selected: <span id="count">0</span></p>
-      <p>Total Price: ₹<span id="total">0</span></p>
-    </div>
+<!-- RIGHT -->
 
-    <button class="pay-btn" onclick="bookFlight()">Confirm Booking</button>
-  </div>
+<div class="seat-box">
+
+<h3>Seat Selection</h3>
+
+<div class="seats" id="seats"></div>
+
+<div class="summary">
+<p>Seats Selected: <span id="count">0</span></p>
+<p>Total Price: ₹<span id="total">0</span></p>
+</div>
+
+<button class="pay-btn" onclick="bookFlight()">Confirm Booking</button>
+
+</div>
 
 </div>
 
 <script>
-const seatsDiv = document.getElementById("seats");
-const countEl = document.getElementById("count");
-const totalEl = document.getElementById("total");
 
-let selectedSeats = [];
-let currentSeatPrice = 0;
-let selectedFlight = "";
+const seatsDiv=document.getElementById("seats");
+const countEl=document.getElementById("count");
+const totalEl=document.getElementById("total");
+
+let selectedSeats=[];
+let currentSeatPrice=0;
+let selectedFlight="";
 
 function updatePrice(selectBox){
-  currentSeatPrice = parseInt(selectBox.value);
-  selectBox.parentElement.querySelector(".price").innerText = currentSeatPrice;
-  updateSummary();
+
+currentSeatPrice=parseInt(selectBox.value);
+
+selectBox.parentElement.querySelector(".price").innerText=currentSeatPrice;
+
+updateSummary();
+
 }
 
 function showSeats(flight){
-  if(currentSeatPrice === 0){
-    alert("Select class first");
-    return;
-  }
 
-  selectedFlight = flight;
-  selectedSeats = [];
-  seatsDiv.innerHTML = "";
+if(currentSeatPrice===0){
 
-  let rows = ["A","B","C","D","E","F"];
-  let seatNo = 1;
+alert("Select class first");
 
-  for(let i=1;i<=24;i++){
-    let seat = document.createElement("div");
-    seat.className = "seat";
-    seat.innerText = seatNo + rows[(i-1)%6];
+return;
 
-    if(Math.random() < 0.25) seat.classList.add("booked");
+}
 
-    seat.onclick = () => {
-      if(seat.classList.contains("booked")) return;
-      seat.classList.toggle("selected");
+selectedFlight=flight;
 
-      selectedSeats.includes(seat.innerText)
-        ? selectedSeats = selectedSeats.filter(s=>s!==seat.innerText)
-        : selectedSeats.push(seat.innerText);
+selectedSeats=[];
 
-      updateSummary();
-    };
-    seatsDiv.appendChild(seat);
-    if(i % 6 === 0) seatNo++;
-  }
+seatsDiv.innerHTML="";
+
+let rows=["A","B","C","D","E","F"];
+
+let seatNo=1;
+
+for(let i=1;i<=24;i++){
+
+let seat=document.createElement("div");
+
+seat.className="seat";
+
+seat.innerText=seatNo+rows[(i-1)%6];
+
+if(Math.random()<0.25) seat.classList.add("booked");
+
+seat.onclick=()=>{
+
+if(seat.classList.contains("booked")) return;
+
+seat.classList.toggle("selected");
+
+selectedSeats.includes(seat.innerText)
+
+? selectedSeats=selectedSeats.filter(s=>s!==seat.innerText)
+
+: selectedSeats.push(seat.innerText);
+
+updateSummary();
+
+};
+
+seatsDiv.appendChild(seat);
+
+if(i%6===0) seatNo++;
+
+}
+
 }
 
 function updateSummary(){
-  countEl.innerText = selectedSeats.length;
-  totalEl.innerText = selectedSeats.length * currentSeatPrice;
+
+countEl.innerText=selectedSeats.length;
+
+totalEl.innerText=selectedSeats.length*currentSeatPrice;
+
 }
 
 function bookFlight(){
-  if(selectedSeats.length === 0){
-    alert("Please select at least one seat");
-    return;
-  }
 
-  localStorage.setItem("serviceType", "Flight");
-  localStorage.setItem("name", selectedFlight);
-  localStorage.setItem("seats", selectedSeats.join(", "));
-  localStorage.setItem("total", selectedSeats.length * currentSeatPrice);
+if(selectedSeats.length===0){
 
-  window.location.href = "payment.html";
+alert("Please select at least one seat");
+
+return;
+
+}
+
+localStorage.setItem("serviceType","Flight");
+
+localStorage.setItem("name",selectedFlight);
+
+localStorage.setItem("seats",selectedSeats.join(", "));
+
+localStorage.setItem("total",selectedSeats.length*currentSeatPrice);
+
+window.location.href="payment.html";
+
 }
 
 </script>

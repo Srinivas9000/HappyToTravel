@@ -6,127 +6,200 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#0b0f1a;
-  color:#fff;
+
+*{
+box-sizing:border-box;
 }
 
+body{
+margin:0;
+font-family:Poppins, sans-serif;
+background:#0b0f1a;
+color:#fff;
+}
+
+/* HEADER */
 .header{
-  padding:20px;
-  background:#12172a;
-  text-align:center;
-  font-size:1.6rem;
-  font-weight:600;
+padding:18px;
+background:#12172a;
+text-align:center;
+font-size:1.5rem;
+font-weight:600;
 }
 
 /* MAIN LAYOUT */
 .container{
-  display:flex;
-  gap:30px;
-  padding:30px;
+display:flex;
+gap:25px;
+padding:25px;
 }
 
 /* LEFT SIDE */
 .bus-list{
-  width:65%;
+width:65%;
 }
 
+/* BUS CARD */
 .bus-card{
-  background:#12172a;
-  padding:20px;
-  border-radius:18px;
-  margin-bottom:20px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+background:#12172a;
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
 .bus-card h3{
-  margin-bottom:10px;
+margin-bottom:10px;
 }
 
 .bus-card p{
-  opacity:0.85;
-  margin:5px 0;
+opacity:0.85;
+margin:5px 0;
 }
 
 .bus-card select{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border-radius:10px;
-  border:none;
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:10px;
+border:none;
 }
 
 .bus-card button{
-  margin-top:15px;
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#ff9966,#ff5e62);
-  color:#000;
-  font-weight:600;
-  cursor:pointer;
+margin-top:15px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#ff9966,#ff5e62);
+color:#000;
+font-weight:600;
+cursor:pointer;
 }
 
 /* RIGHT SIDE */
 .seat-box{
-  width:35%;
-  background:#12172a;
-  padding:25px;
-  border-radius:20px;
-  position:sticky;
-  top:20px;
+width:35%;
+background:#12172a;
+padding:25px;
+border-radius:20px;
+position:sticky;
+top:20px;
 }
 
+/* SEAT GRID */
 .seats{
-  display:grid;
-  grid-template-columns:repeat(4,60px);
-  gap:12px;
-  margin-top:20px;
+display:grid;
+grid-template-columns:repeat(4,60px);
+gap:12px;
+margin-top:20px;
+justify-content:center;
 }
 
 .seat{
-  width:60px;
-  height:60px;
-  background:#1e2542;
-  border-radius:8px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
+width:60px;
+height:60px;
+background:#1e2542;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
 }
 
 .seat.selected{
-  background:#ff9966;
-  color:#000;
+background:#ff9966;
+color:#000;
 }
 
 .seat.booked{
-  background:#555;
-  cursor:not-allowed;
+background:#555;
+cursor:not-allowed;
 }
 
 /* SUMMARY */
 .summary{
-  margin-top:20px;
+margin-top:20px;
 }
 
 .summary p{
-  margin:8px 0;
+margin:8px 0;
 }
 
 .pay-btn{
-  margin-top:15px;
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:25px;
-  background:linear-gradient(45deg,#36d1dc,#5b86e5);
-  color:#fff;
-  font-weight:600;
+margin-top:15px;
+padding:12px;
+width:100%;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#36d1dc,#5b86e5);
+color:#fff;
+font-weight:600;
+cursor:pointer;
 }
+
+/* -------- TABLET -------- */
+
+@media (max-width:1024px){
+
+.container{
+flex-direction:column;
+}
+
+.bus-list{
+width:100%;
+}
+
+.seat-box{
+width:100%;
+position:relative;
+}
+
+.seats{
+grid-template-columns:repeat(6,50px);
+}
+
+.seat{
+width:50px;
+height:50px;
+}
+
+}
+
+/* -------- MOBILE -------- */
+
+@media (max-width:600px){
+
+.header{
+font-size:1.3rem;
+}
+
+.container{
+padding:15px;
+gap:20px;
+}
+
+.bus-card{
+padding:15px;
+}
+
+.seats{
+grid-template-columns:repeat(4,45px);
+gap:10px;
+}
+
+.seat{
+width:45px;
+height:45px;
+font-size:14px;
+}
+
+.pay-btn{
+padding:11px;
+}
+
+}
+
 </style>
 </head>
 
@@ -136,132 +209,139 @@ body{
 
 <div class="container">
 
-  <!-- LEFT -->
-  <div class="bus-list">
+<div class="bus-list">
 
-    <div class="bus-card">
-      <h3>Orange Travels – Volvo AC</h3>
-      <p><b>Route:</b> Hyderabad ➝ Bengaluru</p>
-      <p><b>Departure:</b> 09:30 PM | <b>Arrival:</b> 06:00 AM</p>
-      <p><b>Available Seats:</b> 36</p>
+<div class="bus-card">
+<h3>Orange Travels – Volvo AC</h3>
+<p><b>Route:</b> Hyderabad ➝ Bengaluru</p>
+<p><b>Departure:</b> 09:30 PM | <b>Arrival:</b> 06:00 AM</p>
+<p><b>Available Seats:</b> 36</p>
 
-      <select onchange="updatePrice(this)">
-        <option value="450">AC Seater – ₹450</option>
-        <option value="650">AC Sleeper – ₹650</option>
-      </select>
+<select onchange="updatePrice(this)">
+<option value="450">AC Seater – ₹450</option>
+<option value="650">AC Sleeper – ₹650</option>
+</select>
 
-      <p><b>Price:</b> ₹<span class="price">450</span></p>
-      <button onclick="showSeats('Orange Travels')">Select Seats</button>
-    </div>
+<p><b>Price:</b> ₹<span class="price">450</span></p>
+<button onclick="showSeats('Orange Travels')">Select Seats</button>
+</div>
 
-    <div class="bus-card">
-      <h3>VRL Travels – Multi Axle</h3>
-      <p><b>Route:</b> Hyderabad ➝ Chennai</p>
-      <p><b>Departure:</b> 10:15 PM | <b>Arrival:</b> 07:00 AM</p>
+<div class="bus-card">
+<h3>VRL Travels – Multi Axle</h3>
+<p><b>Route:</b> Hyderabad ➝ Chennai</p>
+<p><b>Departure:</b> 10:15 PM | <b>Arrival:</b> 07:00 AM</p>
 
-      <select onchange="updatePrice(this)">
-        <option value="500">AC Seater – ₹500</option>
-        <option value="720">AC Sleeper – ₹720</option>
-      </select>
+<select onchange="updatePrice(this)">
+<option value="500">AC Seater – ₹500</option>
+<option value="720">AC Sleeper – ₹720</option>
+</select>
 
-      <p><b>Price:</b> ₹<span class="price">500</span></p>
-      <button onclick="showSeats('VRL Travels')">Select Seats</button>
-    </div>
+<p><b>Price:</b> ₹<span class="price">500</span></p>
+<button onclick="showSeats('VRL Travels')">Select Seats</button>
+</div>
 
-    <div class="bus-card">
-      <h3>KSRTC Airavat</h3>
-      <p><b>Route:</b> Hyderabad ➝ Vijayawada</p>
-      <p><b>Departure:</b> 08:00 PM | <b>Arrival:</b> 02:30 AM</p>
+<div class="bus-card">
+<h3>KSRTC Airavat</h3>
+<p><b>Route:</b> Hyderabad ➝ Vijayawada</p>
+<p><b>Departure:</b> 08:00 PM | <b>Arrival:</b> 02:30 AM</p>
 
-      <select onchange="updatePrice(this)">
-        <option value="380">Non AC – ₹380</option>
-        <option value="520">AC Seater – ₹520</option>
-      </select>
+<select onchange="updatePrice(this)">
+<option value="380">Non AC – ₹380</option>
+<option value="520">AC Seater – ₹520</option>
+</select>
 
-      <p><b>Price:</b> ₹<span class="price">380</span></p>
-      <button onclick="showSeats('KSRTC Airavat')">Select Seats</button>
-    </div>
+<p><b>Price:</b> ₹<span class="price">380</span></p>
+<button onclick="showSeats('KSRTC Airavat')">Select Seats</button>
+</div>
 
-  </div>
+</div>
 
-  <!-- RIGHT -->
-  <div class="seat-box">
-    <h3>Seat Selection</h3>
-    <div class="seats" id="seats"></div>
+<div class="seat-box">
+<h3>Seat Selection</h3>
+<div class="seats" id="seats"></div>
 
-    <div class="summary">
-      <p>Seats Selected: <span id="count">0</span></p>
-      <p>Total Price: ₹<span id="total">0</span></p>
-    </div>
+<div class="summary">
+<p>Seats Selected: <span id="count">0</span></p>
+<p>Total Price: ₹<span id="total">0</span></p>
+</div>
 
-    <button class="pay-btn" onclick="bookBus()">Confirm Booking</button>
-  </div>
+<button class="pay-btn" onclick="bookBus()">Confirm Booking</button>
+</div>
 
 </div>
 
 <script>
-const seatsDiv = document.getElementById("seats");
-const countEl = document.getElementById("count");
-const totalEl = document.getElementById("total");
 
-let selectedSeats = [];
-let currentSeatPrice = 0;
-let selectedBus = "";
+const seatsDiv=document.getElementById("seats");
+const countEl=document.getElementById("count");
+const totalEl=document.getElementById("total");
+
+let selectedSeats=[];
+let currentSeatPrice=0;
+let selectedBus="";
 
 function updatePrice(selectBox){
-  currentSeatPrice = parseInt(selectBox.value);
-  selectBox.parentElement.querySelector(".price").innerText = currentSeatPrice;
-  updateSummary();
+currentSeatPrice=parseInt(selectBox.value);
+selectBox.parentElement.querySelector(".price").innerText=currentSeatPrice;
+updateSummary();
 }
 
 function showSeats(bus){
-  if(currentSeatPrice === 0){
-    alert("Select seat type first");
-    return;
-  }
 
-  selectedBus = bus;
-  selectedSeats = [];
-  seatsDiv.innerHTML = "";
+if(currentSeatPrice===0){
+alert("Select seat type first");
+return;
+}
 
-  for(let i=1;i<=24;i++){
-    let seat = document.createElement("div");
-    seat.className = "seat";
-    seat.innerText = i;
+selectedBus=bus;
+selectedSeats=[];
+seatsDiv.innerHTML="";
 
-    if(Math.random() < 0.25) seat.classList.add("booked");
+for(let i=1;i<=24;i++){
 
-    seat.onclick = () => {
-      if(seat.classList.contains("booked")) return;
-      seat.classList.toggle("selected");
+let seat=document.createElement("div");
+seat.className="seat";
+seat.innerText=i;
 
-      selectedSeats.includes(i)
-        ? selectedSeats = selectedSeats.filter(s=>s!==i)
-        : selectedSeats.push(i);
+if(Math.random()<0.25) seat.classList.add("booked");
 
-      updateSummary();
-    };
-    seatsDiv.appendChild(seat);
-  }
+seat.onclick=()=>{
+
+if(seat.classList.contains("booked")) return;
+
+seat.classList.toggle("selected");
+
+selectedSeats.includes(i)
+? selectedSeats=selectedSeats.filter(s=>s!==i)
+: selectedSeats.push(i);
+
+updateSummary();
+
+};
+
+seatsDiv.appendChild(seat);
+}
+
 }
 
 function updateSummary(){
-  countEl.innerText = selectedSeats.length;
-  totalEl.innerText = selectedSeats.length * currentSeatPrice;
+countEl.innerText=selectedSeats.length;
+totalEl.innerText=selectedSeats.length*currentSeatPrice;
 }
 
 function bookBus(){
-  if(selectedSeats.length === 0){
-    alert("Please select at least one seat");
-    return;
-  }
 
-  // save data temporarily (like session)
-  localStorage.setItem("busName", selectedBus);
-  localStorage.setItem("seats", selectedSeats.join(", "));
-  localStorage.setItem("total", selectedSeats.length * currentSeatPrice);
+if(selectedSeats.length===0){
+alert("Please select at least one seat");
+return;
+}
 
-  window.location.href = "payment.html";
+localStorage.setItem("busName",selectedBus);
+localStorage.setItem("seats",selectedSeats.join(", "));
+localStorage.setItem("total",selectedSeats.length*currentSeatPrice);
+
+window.location.href="payment.html";
+
 }
 
 </script>
